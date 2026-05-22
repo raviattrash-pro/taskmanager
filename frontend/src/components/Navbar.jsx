@@ -76,11 +76,24 @@ export default function Navbar() {
           </button>
           
           {isLabsOpen && (
-            <div className="glass-panel labs-dropdown">
-              <div className="labs-header">
-                <h4>🧪 Ascent Labs</h4>
-                <p>Experiment with cutting-edge productivity features.</p>
-              </div>
+            <>
+              <div className="labs-backdrop-mobile" onClick={() => setIsLabsOpen(false)}></div>
+              <div className="glass-panel labs-dropdown">
+                <div className="labs-header">
+                  <div className="labs-header-content">
+                    <h4>🧪 Ascent Labs</h4>
+                    <p>Experiment with cutting-edge productivity features.</p>
+                  </div>
+                  <button 
+                    onClick={() => setIsLabsOpen(false)} 
+                    className="labs-close-btn" 
+                    aria-label="Close Labs"
+                  >
+                    <svg width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+                    </svg>
+                  </button>
+                </div>
               <div className="labs-body">
                 <div className="labs-section">
                   <h5>Date & Time</h5>
@@ -358,8 +371,9 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
-          )}
-        </div>
+          </>
+        )}
+      </div>
 
         {/* RPG Level Tracker */}
         {labs.productivityRpg && (
